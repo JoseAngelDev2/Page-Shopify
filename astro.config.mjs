@@ -1,7 +1,7 @@
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import netlify from "@astrojs/netlify/functions"; // 👈 Cambié de vercel a netlify
+import netlify from "@astrojs/netlify"; // ✅ Import correcto
 import tailwindcss from "@tailwindcss/vite";
 import AutoImport from "astro-auto-import";
 import { defineConfig } from "astro/config";
@@ -9,7 +9,6 @@ import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
 
-// https://astro.build/config
 export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
   base: config.site.base_path ? config.site.base_path : "/",
@@ -51,6 +50,6 @@ export default defineConfig({
     extendDefaultPlugins: true,
   },
 
-  adapter: netlify(), // 👈 Aquí se usa Netlify
+  adapter: netlify(), // ✅ Correcto para Netlify
 });
 
